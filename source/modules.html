@@ -12,6 +12,8 @@
         <script type="text/template">
             ## Not Magic
 
+            modules modify your environment to dynamically load support for programs/packages
+
             ```
             [aorth@hpc: ~]$ R
             -bash: R: command not found
@@ -19,8 +21,77 @@
             [aorth@hpc: ~]$ R
 
             R version 3.0.0 (2013-04-03) -- "Masked Marvel"
+            ...
             ```
 
+            In this case, the R module modified your $PATH to include the path to R
+        </script>
+    </section>
+    <section data-markdown>
+        <script type="text/template">
+            ## Ok, maybe it's magic
+
+            The $PATH is where your shell looks for commands when you type them...
+
+            ```
+            [aorth@hpc: ~]$ echo $PATH
+            /usr/local/bin:/bin:/usr/bin:/usr/sbin:/sbin
+            [aorth@hpc: ~]$ module load R
+            [aorth@hpc: ~]$ echo $PATH
+            /export/apps/R/3.0.0/bin:/usr/local/bin:/bin:/usr/bin:/usr/sbin:/sbin
+            ```
+
+            Every time you load a module, it **prepends** directories to your $PATH
+        </script>
+    </section>
+    <section data-markdown>
+        <script type="text/template">
+            ## The Man Behind the Curtain
+
+            Here's the "modulefile" for R:
+
+            ```
+            set    appname       R
+            set    version       3.0.0
+            set    prefix        /export/apps/${appname}/${version}
+            set    exec_prefix   ${prefix}/bin
+            set    datarootdir   ${prefix}/share
+            
+            conflict    R
+            
+            prepend-path    PATH        ${exec_prefix}
+            prepend-path    MANPATH     ${datarootdir}/man
+            ```
+
+            Simple enough, right?  Notice it also overrides the $MANPATH
+        </script>
+    </section>
+    <section data-markdown>
+        <script type="text/template">
+            ## Other tricks
+
+            modules can also handle dependencies, for example:
+
+            ```
+            [aorth@hpc: ~]$ module list
+            Currently Loaded Modulefiles:
+              1) ilri/latest
+            [aorth@hpc: ~]$ module load cufflinks
+            [aorth@hpc: ~]$ module list
+            Currently Loaded Modulefiles:
+              1) ilri/latest        2) samtools/latest    3) cufflinks/latest
+            ```
+
+            **cufflinks** isn't much use without **samtools**...
+        </script>
+    </section>
+    <section data-markdown>
+        <script type="text/template">
+            ## More modules commands
+
+            <code>module unload *module*</code> -- Unload *module*
+
+            <code>module avail</code> -- List all available modules
         </script>
     </section>
 </section>
