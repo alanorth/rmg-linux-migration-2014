@@ -11,6 +11,27 @@
     <section data-markdown>
         <script type="text/template">
             ## Using local storage in batch jobs
+
+            ```
+            #!/bin/env bash
+            #SBATCH -p batch
+            #SBATCH -n 1
+            #SBATCH -J test
+            
+            # override SLURM's TMPDIR
+            TMPDIR=/var/scratch
+            # create a named temp dir relative to $TMPDIR, ie tmp.JipMOA9483
+            WORKDIR=`mktemp -d`
+            
+            echo "Using $WORKDIR on $SLURMD_NODENAME"
+            echo
+            
+            Trinity.pl --seqType fq --JM 10G --single /home/tamuge/shared/Project_Rokhsar/concat_samples/AR1960BN.fastq --output $WORKDIR/AR1960BN_trinity_out --CPU 4 --inchworm_cpu 4 --bflyCPU 4
+            ```
+
+            ```
+            Using /var/scratch/tmp.moSnuBg0kP on mammoth
+            ```
         </script>
     </section>
 </section>
