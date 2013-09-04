@@ -12,25 +12,39 @@
         <script type="text/template">
             ## Using local storage in batch jobs
 
+            taurus and mammoth have a local "scratch" space we can use:
+
+            <br/>
+            */var/scratch*
+
+            <br/>
+            Scratch space is a local, temporary place to put your data where you don't incur penalties for going over the network
+        </script>
+    </section>
+    <section data-markdown>
+        <script type="text/template">
+            ## Example batch script
+
             ```
             #!/bin/env bash
             #SBATCH -p batch
-            #SBATCH -n 1
+            #SBATCH -n 4
             #SBATCH -J test
             
-            # override SLURM's TMPDIR
-            TMPDIR=/var/scratch
-            # create a named temp dir relative to $TMPDIR, ie tmp.JipMOA9483
-            WORKDIR=`mktemp -d`
-            
+            WORKDIR=/var/scratch/$SLURM_JOBID
+            mkdir -p $WORKDIR
+
             echo "Using $WORKDIR on $SLURMD_NODENAME"
             echo
             
-            Trinity.pl --seqType fq --JM 10G --single /home/tamuge/shared/Project_Rokhsar/concat_samples/AR1960BN.fastq --output $WORKDIR/AR1960BN_trinity_out --CPU 4 --inchworm_cpu 4 --bflyCPU 4
+            Trinity.pl --seqType fq --JM 10G --single AR1960BN.fastq --output $WORKDIR/AR1960BN.out --CPU 4 --inchworm_cpu 4 --bflyCPU 4
             ```
 
+            <br/>
+            Creates a unique temp directory for you during runtime, ie:
+
             ```
-            Using /var/scratch/tmp.moSnuBg0kP on mammoth
+            /var/scratch/10287
             ```
         </script>
     </section>
