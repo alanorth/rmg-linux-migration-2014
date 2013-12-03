@@ -26,4 +26,27 @@
             Spread the problem over multiple CPUs ("multi-threaded" code)
         </script>
     </section>
+    <section data-markdown>
+        <script type="text/template">
+            ## Multi-threaded code
+
+            Many programs allow you to specify cores, threads, or CPUs. For example:
+
+            <br/>
+            BLAST:
+
+            ```
+            blastn -num_threads 4
+            ```
+
+            Trinity:
+
+            ```
+            Trinity.pl [..] --output blah.out --CPU 4 --inchworm_cpu 4 --bflyCPU 4
+            ```
+
+            <br/>
+            Make sure to match your program's thread/core/cpu parameter with the SLURM job parameters!
+        </script>
+    </section>
 </section>
