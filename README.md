@@ -1,9 +1,6 @@
 # RMG Linux Migration 2014
 
-This is a presentation I gave to the ILRI, Kenya Research Methods Group to pre-
-pare them for moving to Linux on their work machines.  I wanted them to unders-
-tand where Linux came from, and why it's important to use Linux for scientific
-work.
+This is a presentation I gave to the ILRI, Kenya Research Methods Group to prepare them for moving to Linux on their work machines.  I wanted them to understand where Linux came from, and why it's important to use Linux for scientific work.
 
 You can view the presentation on GitHub Pages [here](http://alanorth.github.io/rmg-linux-migration-2014).
 
