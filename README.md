@@ -1,10 +1,11 @@
-# HPC Users Group #4
+# RMG Linux Migration 2014
 
-This is a presentation I gave at the 4th HPC Users Group meeting at ILRI, Kenya.
-It's an informal group I created to encourage good practices amongst the users
-of ILRI's research computing platform.
+This is a presentation I gave to the ILRI, Kenya Research Methods Group to pre-
+pare them for moving to Linux on their work machines.  I wanted them to unders-
+tand where Linux came from, and why it's important to use Linux for scientific
+work.
 
-You can view the presentation on GitHub Pages [here](http://alanorth.github.io/hpc-users-group4).
+You can view the presentation on GitHub Pages [here](http://alanorth.github.io/rmg-linux-migration-2014).
 
 ## LICENSE
 
