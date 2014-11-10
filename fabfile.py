@@ -12,6 +12,7 @@ def prepare():
     local('mkdir -p presentation/lib && cp -r reveal.js/lib/* presentation/lib/')
     local('mkdir -p presentation/plugin && cp -r reveal.js/plugin/* presentation/plugin/')
     local('mkdir -p presentation/img && cp -r source/img/* presentation/img/')
+    local('cp source/favicon.ico presentation/')
 
 def build():
     prepare()
