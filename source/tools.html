@@ -1,0 +1,58 @@
+<section data-markdown>
+    <script type="text/template">
+        ## Tools
+
+        - pyenv / virtual environments
+        - bash shell scripts
+        - git
+        - file formats
+
+        <br/>
+
+        Dev environment == server environment
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Installing CKAN
+
+        Clone git repo...
+
+        ```
+        $ git clone https://github.com/ckan/ckan.git
+        $ cd ckan
+        ```
+        Create virtual environment...
+
+        ```
+        $ pyenv virtualenv ckan
+        ```
+        Activate and prepare virtualenv:
+
+        ```
+        $ pyenv activate ckan
+        (ckan)$ pip install -r requirements.txt
+        ```
+        Profit! 
+        ```
+        (ckan)$ paster make-config ckan development.ini
+        (ckan)$ paster serve development.ini
+        ```
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Deploying CKAN in 4 steps?
+
+        ![Success kid](img/success-kid.png)
+
+        Success Kid says, "Awwww yissssss!"
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Linux <3 Science
+
+        - Scientific method includes being able to reproduce experiments
+    </script>
+</section>
