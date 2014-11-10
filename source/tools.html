@@ -70,6 +70,43 @@
 </section>
 <section data-markdown>
     <script type="text/template">
+        ## These slides...
+
+        Clone git repo...
+
+        ```
+        $ git clone https://github.com/alanorth/rmg-linux-migration-2014.git
+        $ cd rmg-linux-migration-2014
+        ```
+        Create virtual environment...
+
+        ```
+        $ pyenv virtualenv reveal
+        ```
+        Activate and prepare virtualenv:
+
+        ```
+        $ pyenv activate reveal
+        (reveal)$ pip install -r requirements.txt
+        ```
+        Profit!
+        ```
+        (reveal)$ fab build
+        (reveal)$ cd presentation && python -m SimpleHTTPServer
+        ```
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Profit
+
+        ![Reveal Slides](img/reveal-slides.png)
+
+        **Anyone** can use and improve these slides!
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
         ## Linux <3 Science
 
         - Scientific method includes being able to reproduce experiments
