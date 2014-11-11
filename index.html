@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>RMG Linux Migration 2014</title>
+
+		<meta name="description" content="What is Linux, and how should we use it in RMG?">
+		<meta name="author" content="Alan Orth">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+        
+            <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-730843-7', 'alanorth.github.io');
+            ga('send', 'pageview');
+
+            </script>
+        
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+                
+<section data-markdown>
+    <script type="text/template">
+        # The Great RMG Linux Migration of 2014
+        *What is Linux, and how should we use it in RMG?*
+
+        <img src="img/linux.png" style="height: 166px; border: none; background: none; box-shadow: none;">
+
+        Alan Orth
+
+        November, 2014
+    </script>
+</section>
+<style type="text/css">
+section.left-align h1 { text-align: left; }
+</style>
+
+<section class="left-align" data-markdown>
+    <script type="text/template">
+        # Linux?
+
+        # Tools!
+
+        # Dog food...
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## What is Linux?
+
+        ![Colonel Sanders](img/colonel-sanders.jpg) <!-- .element: class="fragment" data-fragment-index="1" -->
+
+        - Technically: a kernel <!-- .element: class="fragment" data-fragment-index="0" -->
+        - Practically: a "Unix-like" OS <!-- .element: class="fragment" data-fragment-index="2" -->
+    </script>
+</section>
+<section data-background="img/mainframe.jpg">
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## A Family of Unix-like OSes
+
+        - 1960s: MULTICS, UNICS -> UNIX...
+        - 1970s: BSD -> Sun OS <!-- .element: class="fragment" data-fragment-index="0" -->
+        - 1980s: HP-UX, AIX, Xenix, Minix, Solaris <!-- .element: class="fragment" data-fragment-index="1" -->
+        - 1990s: Linux* is born... <!-- .element: class="fragment" data-fragment-index="2" -->
+
+        <br/>
+        <br/>
+
+        **GNU + Linux == GNU/Linux* <!-- .element: class="fragment" data-fragment-index="2" -->
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Simple Unix History
+
+        ![Simple Unix History](img/Unix-history.png)
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Debian GNU/Linux history (1993!)
+
+        ![Simple Debian History](img/Debian-history.png)
+    </script>
+</section>
+<section data-markdown data-background="img/Ubuntu-history.png">
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Big Family...
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Why Linux for programmers?
+
+        <br/>
+
+        "*First, since we are programmers, we naturally designed the system to make it easy to write, test, and run programs.*"
+
+        <br/>
+
+        &mdash;Dennis Ritchie (creator of C), in the original UNIX paper (1974)
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Tooling is unparalleled
+
+        - pyenv / virtual environments
+        - ANSI C + GNU GCC + Makefiles
+        - QT Creator in no time
+        - bash shell scripts for automation
+        - git workflows
+        - file formats and line endings (LF / CRLF)
+
+        <br/>
+
+        Most relevant for us: dev environment == server environment
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Installing CKAN
+
+        Clone git repo...
+
+        ```
+        $ git clone https://github.com/ckan/ckan.git
+        $ cd ckan
+        ```
+        Create virtual environment...
+
+        ```
+        $ pyenv virtualenv ckan
+        ```
+        Activate and prepare virtualenv:
+
+        ```
+        $ pyenv activate ckan
+        (ckan)$ pip install -r requirements.txt
+        ```
+        Profit!
+        ```
+        (ckan)$ paster make-config ckan development.ini
+        (ckan)$ paster serve development.ini
+        ```
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Deploying CKAN in 4 steps?
+
+        ![Success kid](img/success-kid.png)
+
+        Success Kid says, "Awwww yissssss!"
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## These slides...
+
+        Clone git repo...
+
+        ```
+        $ git clone https://github.com/alanorth/rmg-linux-migration-2014.git
+        $ cd rmg-linux-migration-2014
+        ```
+        Create virtual environment...
+
+        ```
+        $ pyenv virtualenv reveal
+        ```
+        Activate and prepare virtualenv:
+
+        ```
+        $ pyenv activate reveal
+        (reveal)$ pip install -r requirements.txt
+        ```
+        Profit!
+        ```
+        (reveal)$ fab build
+        (reveal)$ cd presentation && python -m SimpleHTTPServer
+        ```
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Profit
+
+        ![Reveal Slides](img/reveal-slides.png)
+
+        **Anyone** can use and improve these slides!
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Eating our own dog food
+
+        - Are we developers or users?
+        - Learn the intricacies of the systems we're supposed to be masters of
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Linux ecosystem is compatible with our ideology
+
+        Open Data, Open Access, Open Science, Open Source...
+
+        <br/>
+
+        *GNU/Linux and the ecosystem are "free software"*
+
+        <br/>
+
+        - Free: zero pesa
+        - Libre: zero restrictions
+        - Open: source code is accessible, verifiable
+    </script>
+</section>
+<section data-markdown>
+    <script type="text/template">
+        ## Linux <3 Scientific Method
+
+        - Scientific method includes being able to reproduce experiments
+        - ... and for others to be able to repeat them too!
+    </script>
+</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/fade/none
+				backgroundTransition: 'slide',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
