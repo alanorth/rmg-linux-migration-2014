@@ -1,5 +1,4 @@
 ## RMG Linux Migration 2014
-
 This is a presentation I gave to the ILRI, Kenya Research Methods Group to prepare them for moving to Linux on their work machines.  I wanted them to understand where Linux came from, and why it's important to use Linux for scientific work.
 
 You can view the presentation on GitHub Pages [here](https://alanorth.github.io/rmg-linux-migration-2014).
@@ -25,9 +24,7 @@ After hacking on the slides in the `source/` directory, build the presentation a
 
 The presentation will be available at [http://localhost:8000](http://localhost:8000).
 
-### LICENSE
+### License
+This repository contains the code of [reveal.js](https://github.com/hakimel/reveal.js) which is licensed under the [MIT license](https://github.com/hakimel/reveal.js/blob/master/LICENSE).
 
-This repository contains the code of [Reveal.js](https://github.com/hakimel/reveal.js)
-which is licensed under the [MIT license](https://github.com/hakimel/reveal.js/blob/master/LICENSE).
-
-Otherwise, the contents of source/ are [Unlicensed](http://unlicense.org/UNLICENSE).
+Otherwise, the contents of `source/` are [Unlicensed](http://unlicense.org/UNLICENSE).
