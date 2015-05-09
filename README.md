@@ -12,7 +12,8 @@ If you want to hack on this repo (ie for your own presentation) you will have to
 
 Then create a Python virtual environment to setup the required tools for building the presentation:
 
-    $ pyenv virtualenv reveal
+    $ pyenv install 2.7.9
+    $ pyenv virtualenv 2.7.9 reveal
     $ pyenv activate reveal
     $ pip install -r requirements.txt
 
@@ -22,7 +23,7 @@ After hacking on the slides in the `source/` directory, build the presentation a
     $ cd presentation
     $ python -m SimpleHTTPServer
 
-The presentation will be available at http://localhost:8000/.
+The presentation will be available at [http://localhost:8000](http://localhost:8000).
 
 ### LICENSE
 
